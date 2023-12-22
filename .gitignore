@@ -1,0 +1,25 @@
+
+# Node.js
+node_modules/
+
+# Build output
+/build/
+/public/
+
+# Environment variables
+.env
+
+# IDE or editor files
+.vscode/
+.idea/
+
+# Dependency directories
+bower_components/
+
+# Logs
+logs/
+*.log
+
+# OS generated files
+.DS_Store
+Thumbs.db
