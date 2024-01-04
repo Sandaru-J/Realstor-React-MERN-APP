@@ -10,6 +10,9 @@ const userSlice = createSlice({
     name: 'user',
     initialState,
     reducers:{
+        setCurrentUser:(state, action)=>{
+            state.currentUser = action.payload;
+        },
         signInStart : (state) =>{
             state.loading = true;
         },
@@ -32,7 +35,7 @@ const userSlice = createSlice({
 //   }; 
 
 export const { reducer: userReducer } = userSlice;
-export const { signInStart, signInSuccess, signInFailure } = userSlice.actions;
+export const { signInStart, signInSuccess, signInFailure, setCurrentUser } = userSlice.actions;
 export default userSlice.reducer;
 
 // const persistedUserReducer = persistReducer(persistConfig, userSlice.reducer);
