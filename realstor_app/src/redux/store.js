@@ -3,7 +3,7 @@ import userReducer from './user/userSlice';
 import { persistReducer, persistStore } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
-const rootReducer = combineReducers({ user: userReducer });
+;
 
 const persistConfig = {
     key: 'root',
@@ -11,17 +11,27 @@ const persistConfig = {
     version: 1,
   };
   
-
+const rootReducer = combineReducers({ user: userReducer })
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
-export const store = configureStore({
-  reducer: { user:persistedReducer, },
-  middleware: (getDefaultMiddleware) => getDefaultMiddleware({
-    serializableCheck:false
-  }), 
-})
+// const store = configureStore({
+//   reducer: { user:persistedReducer, },
+//   middleware: (getDefaultMiddleware) => getDefaultMiddleware({
+//     serializableCheck:false
+//   }), 
+// })
 
-export const persistor = persistStore(store)
+const store = configureStore({
+  reducer: persistedReducer,
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: false,
+    }).concat(/* other middlewares if needed */),
+});
+
+
+const persistor = persistStore(store)
+export {store, persistor}
 // Infer the `RootState` and `AppDispatch` types from the store itself
 //export type RootState = ReturnType<typeof store.getState>
 // Inferred type: {posts: PostsState, comments: CommentsState, users: UsersState}
