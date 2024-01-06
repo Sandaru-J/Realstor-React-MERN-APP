@@ -14,7 +14,7 @@ export default function Header() {
       }
   return (
     <header className=' bg-gray-800 shadow-md'>
-        <div className='flex justify-between items-center max-w-6xl mx-auto p-2'>
+        <div className='flex justify-between items-center max-w-6xl mx-auto p-3'>
             <Link to='/'>
         <h1 className='font-bold text-sm sm:text-xl flex flex-wrap'>
             <span className='md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500'>Epic</span>
@@ -26,7 +26,7 @@ export default function Header() {
             className='bg-slate-600 focus:outline-none w-24 sm:w-64'/>
             <FaSearch className='text-slate-500'/>
         </form>
-        <ul className='flex gap-4'>
+        <ul className='flex gap-4 justify-between'>
             <Link to='/'>
             <li className='italic  hidden sm:inline md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500 hover:text-blue-200'>Home</li>
             </Link>
