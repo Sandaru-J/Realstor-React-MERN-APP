@@ -2,6 +2,7 @@ import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv'
 import cors from 'cors';
+import cookieParser from 'cookie-parser';
 
 import userRouter from './routes/user.route.js'
 import authRouter from './routes/auth.route.js'
@@ -50,6 +51,7 @@ app.use(cors());
 
 // Parse JSON requests
 app.use(express.json());
+app.use(cookieParser())
 
 app.use('/API/user', userRouter);
 app.use('/API/auth', authRouter);
